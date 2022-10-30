@@ -2,10 +2,10 @@
 function setup(){
     console.log("setup");
     
-    //ancho, alto en píxeles
+    //createCanvas: ancho, alto en píxeles
     createCanvas(800,300);
 
-    //background RGB
+    //background RGB : Define el color del fondo
     // RED --> background(255,0,0);
     // GREEN --> background(0,255, 0);
     // BLUE --> background(0,255, 0);
