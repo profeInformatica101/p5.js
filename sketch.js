@@ -1,14 +1,21 @@
+//corre solo una vez cuando inicia el programa
 function setup(){
-    createCanvas(480, 120);
+    console.log("setup");
+    
+    //ancho, alto en píxeles
+    createCanvas(800,300);
+
+    //background RGB
+    // RED --> background(255,0,0);
+    // GREEN --> background(0,255, 0);
+    // BLUE --> background(0,255, 0);
 
 }
 
+//corre continuamente después de la función setup
 function draw(){
-    background(204);
+    console.log("draw");
+    
+      //instrucciones a ejecutar en bucle
 
-    /** Ejemplo Linea: 
-       line(x1, y1, x2, y2);
-    */
-    fill('red'); //nombre del color
-    line(20, 50, 420, 110);
 }
