@@ -1,6 +1,6 @@
 //corre solo una vez cuando inicia el programa
 function setup(){
-    console.log("setup");
+    console.log("setup - frameCount:"+frameCount);
     
     //createCanvas: ancho, alto en píxeles
     createCanvas(800,300);
@@ -14,7 +14,7 @@ function setup(){
 
 //corre continuamente después de la función setup
 function draw(){
-    console.log("draw");
+    console.log("draw - frameCount:"+frameCount);
     
       //instrucciones a ejecutar en bucle
 
