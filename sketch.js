@@ -5,10 +5,15 @@ let listaCirculo = new Array();
 
 
 function setup() {
-  console.log("setup");
+ console.log("setup - frameCount:"+frameCount);
   createCanvas(238, 332);
+  
   img = loadImage('https://picsum.photos/238/332?random=1'); // Load the image
- 
+  
+  //Previamente he subido al imagen a https://es.imgbb.com/. Tiene dos meses de duración.
+  img_caballo = loadImage('https://i.ibb.co/LZNKVnJ/Ying-Yan.png');
+
+
   //Instanciamos 3 objetos. Son de clase Circulo posicionados (x,y) y usando los colores RGB.
   c_rojo = new Circulo(50,50,'red');
   c_verde = new Circulo(125,125,'green');
@@ -20,8 +25,8 @@ function setup() {
 }
 
 function draw() {
-  console.log("draw");
-
+  console.log("draw - frameCount:"+frameCount);
+ 
   // prompt("¿Quieres que te cuente el cuento de la buena pipa?"); //BORRAR
 
   // Displays the image at its actual size at point (0,0)
@@ -37,6 +42,37 @@ function draw() {
    dibujarCaballo();
   // ellipse(40,40, 40,40);
   mostrarHora();
+
+  
+}
+
+// Función que pinta un caballo usando creación de figuras con vertex
+function dibujarCaballo(){
+  fill(0);
+  textSize(45);
+  text('VALOR: 3', 30, 40);
+ 
+ beginShape();
+  vertex(x_cuadradito_a_px(3), y_cuadradito_a_px(11));
+  vertex(x_cuadradito_a_px(9), y_cuadradito_a_px(6));
+  vertex(x_cuadradito_a_px(9), y_cuadradito_a_px(12));
+  vertex(x_cuadradito_a_px(3), y_cuadradito_a_px(14));
+  //agrega más vértices
+endShape(CLOSE);
+
+beginShape();
+  vertex(x_cuadradito_a_px(9), y_cuadradito_a_px(6));
+  vertex(x_cuadradito_a_px(10), y_cuadradito_a_px(4));
+  vertex(x_cuadradito_a_px(11), y_cuadradito_a_px(6));
+  vertex(x_cuadradito_a_px(14), y_cuadradito_a_px(15));
+  vertex(x_cuadradito_a_px(9), y_cuadradito_a_px(15));
+  //agrega más vértices
+endShape(CLOSE);
+fill(255);
+ ellipse(x_cuadradito_a_px(9),y_cuadradito_a_px(9),20,20);
+ fill('brown');
+ ellipse(x_cuadradito_a_px(9),y_cuadradito_a_px(9),10,10);
+rect(x_cuadradito_a_px(7),y_cuadradito_a_px(15), 120,120);
 }
 
 
@@ -63,12 +99,18 @@ class Circulo{
   mostrar(){
     fill(this.color);
     ellipse(this.x,this.y,this.diametro,this.diametro);
+    image(img_caballo, this.x-15,this.y-15, this.diametro-20, this.diametro-20);
   }
 
 
 
 }
-
+/***
+ * ##################################################
+ * #             Funciones auxiliares
+ * ##################################################
+ * 
+ */
 function mostrarHora(){
   //Objeto hora
 let today = new Date();
@@ -128,35 +170,6 @@ function esp_numero(numero){
       }
       return res;
 }
-
-function dibujarCaballo(){
-  fill(0);
-  textSize(45);
-  text('VALOR: 3', 30, 40);
- 
-  beginShape();
-  vertex(x_cuadradito_a_px(3), y_cuadradito_a_px(11));
-  vertex(x_cuadradito_a_px(9), y_cuadradito_a_px(6));
-  vertex(x_cuadradito_a_px(9), y_cuadradito_a_px(12));
-  vertex(x_cuadradito_a_px(3), y_cuadradito_a_px(14));
-  //agrega más vértices
-endShape(CLOSE);
-
-beginShape();
-  vertex(x_cuadradito_a_px(9), y_cuadradito_a_px(6));
-  vertex(x_cuadradito_a_px(10), y_cuadradito_a_px(4));
-  vertex(x_cuadradito_a_px(11), y_cuadradito_a_px(6));
-  vertex(x_cuadradito_a_px(14), y_cuadradito_a_px(15));
-  vertex(x_cuadradito_a_px(9), y_cuadradito_a_px(15));
-  //agrega más vértices
-endShape(CLOSE);
-fill(255);
- ellipse(x_cuadradito_a_px(9),y_cuadradito_a_px(9),20,20);
- fill('brown');
- ellipse(x_cuadradito_a_px(9),y_cuadradito_a_px(9),10,10);
-rect(x_cuadradito_a_px(7),y_cuadradito_a_px(15), 120,120);
-}
-
 
 
 function x_cuadradito_a_px(pos_cuadradito_x){
