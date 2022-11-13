@@ -77,7 +77,56 @@ let today = new Date();
   hora = today.getHours();
   min = today.getMinutes();
   seg = today.getSeconds();
-  text(hora+":"+min+":"+seg, x_cuadradito_a_px(0), y_cuadradito_a_px(20));
+  text("Son las "+ esp_numero(hora), x_cuadradito_a_px(1), y_cuadradito_a_px(18));
+  text(min+"minutos y", x_cuadradito_a_px(1), y_cuadradito_a_px(20));
+  text(seg+"segundos.", x_cuadradito_a_px(1), y_cuadradito_a_px(22));
+
+
+}
+
+function esp_numero(numero){
+  var res="";
+      switch (hora%12) {
+        case 0:
+          res = "doce"
+          break;
+        case 1:
+          res = "una"
+          break;
+        case 2:
+          res = "dos"
+          break;
+        case 3:
+          res = "tres"
+          break;
+        case 4:
+          res = "cuatro"
+          break;
+        case 5:
+          res = "cinco"
+          break;
+        case 6:
+          res = "seis"
+          break;
+        case 7:
+          res = "siete"
+          break; 
+        case 8:
+            res = "ocho"
+            break;  
+        case 9:
+            res = "nueve"
+            break;
+        case 10:
+            res = "diez"
+            break;
+        case 11:
+            res = "once"
+            break;
+        default:
+           break;
+      }
+      return res;
 }
 
 function dibujarCaballo(){
