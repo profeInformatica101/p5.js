@@ -54,7 +54,7 @@ function pantallaGanador(jugador){
     fill('red');
     rect(0,0, width, height);
     fill('white');
-    textSize(23);
+    textSize(50);
     refrescaNombre();
     text("Gana el Jugador 1: "+ nombreJugador1, width/4, height/4, 200, 200);
   }else{
@@ -62,7 +62,7 @@ function pantallaGanador(jugador){
     fill('green');
     rect(0,0, width, height);
     fill('white');
-    textSize(23);
+    textSize(50);
     refrescaNombre();
     text("Gana el Jugador 2: "+ nombreJugador2, width/4, height/4, 100, 100);
   }
