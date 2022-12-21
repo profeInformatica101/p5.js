@@ -1,8 +1,9 @@
 const JUG1 = 1;
-const JUG2 = 5;
+const JUG2 = 2;
 
-var nombreJugador1="";
-var nombreJugador2="";
+var nombreJugador1 = prompt("Nombre Jugador 1: ");
+var nombreJugador2 = prompt("Nombre Jugador 2: ");
+
 
 var turno = JUG1;
 
@@ -17,6 +18,7 @@ function setup() {
   //console.log("setup - frameCount:"+frameCount);
   //createCanvas: ancho, alto en píxeles
   createCanvas(900, 900);
+  
 }
 
 //corre continuamente después de la función setup
@@ -25,23 +27,26 @@ function draw() {
   clear();
   background(125);
 
-
+  //Comprueba quién es el ganador
   switch (comprobarGanador()) {
     case JUG1:
-        
+         //Muestra la pantalla del ganador 
     pantallaGanador(JUG1);
         
     break;
     case JUG2:
+      //Muestra la pantalla del ganador 
       pantallaGanador(JUG2);
     break;
 
     default:
+      //Se juega
         pintarTablero();
+        punteroRaton();
         break;
   };
 
-  punteroRaton();
+ 
 
 
 }
@@ -49,22 +54,21 @@ function draw() {
 
 function pantallaGanador(jugador){
   
+  
   if(jugador == JUG1){
     //Gana el jugador 1
     fill('red');
     rect(0,0, width, height);
     fill('white');
     textSize(50);
-    refrescaNombre();
-    text("Gana el Jugador 1: "+ nombreJugador1, width/4, height/4, 200, 200);
+    text("Gana "+ nombreJugador1, 100,100, 800, 800);
   }else{
     //Gana el jugador 2
     fill('green');
     rect(0,0, width, height);
     fill('white');
     textSize(50);
-    refrescaNombre();
-    text("Gana el Jugador 2: "+ nombreJugador2, width/4, height/4, 100, 100);
+    text("Gana "+ nombreJugador2, 100, 100, 800, 800);
   }
 
 }
@@ -233,9 +237,9 @@ function comprobarGanador() {
 
   //Diagonal
   if (
-    tablero[0][0] == tablero[1][1] &&
-    tablero[1][1] == tablero[2][2] &&
-    tablero[0][0] != 0
+    tablero[0][2] == tablero[1][1] &&
+    tablero[1][1] == tablero[2][0] &&
+    tablero[0][2] != 0
   ) {
     return tablero[0][0];
   }
@@ -249,12 +253,9 @@ function comprobarGanador() {
   }
 }
 
-function refrescaNombre(){
- 
-    this.nombreJugador1 = document.getElementById("nombreJug1").value; 
-    this.nombreJugador2 = document.getElementById("nombreJug2").value; 
-  
-}
+
+
   function empezar(){
     location.reload();
   }
+
