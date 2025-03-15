@@ -5,8 +5,7 @@ Este repositorio contiene una colección de ejemplos y recursos desarrollados co
 ## Contenido del repositorio
 
 - **/ejemplos**: Directorio que incluye diversos sketches de p5.js que demuestran funcionalidades y conceptos clave.
-- **/recursos**: Material adicional como imágenes, sonidos y otros archivos necesarios para los sketches.
-- **index.html**: Página principal que enlaza a los diferentes ejemplos y recursos del proyecto.
+- **index.html**: Página principal que enlaza a los diferentes ejemplos.
 
 ## Requisitos previos
 
